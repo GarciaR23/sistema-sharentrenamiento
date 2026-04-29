@@ -11,6 +11,8 @@ import edu.utp.backend.services.DocumentoService;
 import edu.utp.backend.services.InstructorService;
 import edu.utp.backend.services.ServicioInstructorService;
 import edu.utp.backend.services.UsuarioService;
+import edu.utp.backend.entities.Tutor;
+import edu.utp.backend.services.TutorService;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -97,7 +99,7 @@ public class BackendRestController {
         return ResponseEntity.noContent().build();
     }
 
-// -------(INSTRUCTOR)------------------------------------|
+    // -------(INSTRUCTOR)------------------------------------|
     private final InstructorService instructorService;
 
     @GetMapping("/instructores")
@@ -132,7 +134,42 @@ public class BackendRestController {
         return ResponseEntity.noContent().build();
     }
 
-// -------(INSTRUCTOR_SERVICIO)------------------------------------|
+    // -------(TUTOR)------------------------------------|
+    private final TutorService tutorService;
+
+    @GetMapping("/tutores")
+    public ResponseEntity<List<Tutor>> getAllTutores() {
+        return ResponseEntity.ok(tutorService.findAll());
+    }
+
+    @GetMapping("/tutores/{id}")
+    public ResponseEntity<Tutor> getTutorById(@PathVariable Integer id) {
+        return ResponseEntity.ok(tutorService.findById(id));
+    }
+
+    @PostMapping("/tutores")
+    public ResponseEntity<Tutor> createTutor(@RequestBody Tutor tutor) {
+        return new ResponseEntity<>(
+                tutorService.create(tutor),
+                HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/tutores/{id}", consumes = "application/json")
+    public ResponseEntity<Tutor> updateTutor(
+            @PathVariable Integer id,
+            @RequestBody Tutor tutor) {
+
+        return ResponseEntity.ok(
+                tutorService.update(id, tutor));
+    }
+
+    @DeleteMapping("/tutores/{id}")
+    public ResponseEntity<Void> deleteTutor(@PathVariable Integer id) {
+        tutorService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    // -------(INSTRUCTOR_SERVICIO)------------------------------------|
     private final ServicioInstructorService servicioInstructorService;
 
     @GetMapping("/servicios")

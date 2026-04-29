@@ -35,7 +35,7 @@ public class ServicioInstructor {
     @Column(name = "dia_disponible", nullable = false, length = 20)
     private String diaDisponible;
     @Column(name = "horario_inicio", nullable = false)
-    private LocalTime horarioInicio;
+    private LocalTime horarioInicio;    
     @Column(name = "horario_final", nullable = false)
     private LocalTime horarioFinal;
 }
