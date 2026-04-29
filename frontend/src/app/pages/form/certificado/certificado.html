@@ -26,58 +26,24 @@
       </header>
 
       <div class="certificado-list">
-        <article class="document-item">
+        <article class="document-item" *ngFor="let document of documents">
           <div class="document-info">
             <span class="document-icon">🪪</span>
             <div>
-              <strong>DNI / Documento de identidad</strong>
-              <span class="status pending">PENDIENTE</span>
+              <strong>{{ document.title }}</strong>
+              <span class="status" [class.pending]="getStatusLabel(document.key) === 'PENDIENTE'" [class.delivered]="getStatusLabel(document.key) === 'ENTREGADO'">
+                {{ getStatusLabel(document.key) }}
+              </span>
             </div>
           </div>
-          <button type="button" class="btn-upload" (click)="fileInput.click()">
+          <button type="button" class="btn-upload" (click)="certificacionInput.click()">
             <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
-          <input type="file" #fileInput (change)="getFile($event)" hidden>
-        </article>
-
-        <article class="document-item">
-          <div class="document-info">
-            <span class="document-icon">🎓</span>
-            <div>
-              <strong>Título universitario (SUNEDU)</strong>
-              <span class="status pending">PENDIENTE</span>
-            </div>
-          </div>
-          <button type="button" class="btn-upload" (click)="fileInput.click()">
-            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
-          <input type="file" #fileInput (change)="getFile($event)" hidden>
-        </article>
-
-        <article class="document-item">
-          <div class="document-info">
-            <span class="document-icon">📋</span>
-            <div>
-              <strong>Antecedentes penales</strong>
-              <span class="status pending">PENDIENTE</span>
-            </div>
-          </div>
-          <button type="button" class="btn-upload" (click)="fileInput.click()">
-            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
-          <input type="file" #fileInput (change)="getFile($event)" hidden>
-        </article>
-
-        <article class="document-item">
-          <div class="document-info">
-            <span class="document-icon">🔒</span>
-            <div>
-              <strong>Certificación en entrenamiento adaptado</strong>
-              <span class="status pending">PENDIENTE</span>
-            </div>
-          </div>
-          <button type="button" class="btn-upload" (click)="fileInput.click()">
-            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
-          <input type="file" #fileInput (change)="getFile($event)" hidden>
+          <input type="file" #certificacionInput (change)="getFile(document.key, $event)" hidden>
+          <small *ngIf="getFileName(document.key)">Archivo: {{ getFileName(document.key) }}</small>
         </article>
       </div>
+
+      <p class="form-feedback" *ngIf="feedbackMessage">{{ feedbackMessage }}</p>
 
       <div class="certificado-note">
         <p>
@@ -88,7 +54,7 @@
 
       <div class="form-actions">
         <button type="button" class="btn-secondary" routerLink="/formulario">← Atrás</button>
-        <button type="button" class="btn-primary" routerLink="/cuenta">Continuar →</button>
+        <button type="button" class="btn-primary" (click)="goToCuenta()">Continuar →</button>
       </div>
     </div>
   </div>

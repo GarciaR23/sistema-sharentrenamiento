@@ -237,3 +237,12 @@
     max-width: 1320px;
   }
 }
+
+// Alert mixins
+@mixin alert-danger {
+  background: rgba(239, 68, 68, 0.06);
+  color: $color-error;
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  padding: 8px 12px;
+  border-radius: $border-radius-md;
+}

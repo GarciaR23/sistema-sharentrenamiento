@@ -1,5 +1,9 @@
 package edu.utp.backend.entities;
 
+import java.time.OffsetDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +30,7 @@ public class Usuario {
     private String rol;
     @Column(name = "estado_cuenta", length = 100)
     private String estadoCuenta;
-    @Column(name = "fecha_registro", length = 100)
-    private String fechaCreacion;
+    @CreationTimestamp
+    @Column(name = "fecha_registro", updatable = false)
+    private OffsetDateTime fechaCreacion;
 }

@@ -69,9 +69,57 @@
 .field-group {
   @include field-group;
 
-  input {
-    min-height: 56px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #191f2c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 12px 14px;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: $color-text-primary;
+    font-size: 1rem;
+    outline: none;
+    min-height: 32px;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .input-wrapper input::placeholder {
+    color: $color-text-tertiary;
+  }
+
+  .input-icon,
+  .icon-button {
+    color: #7c8aa2;
+    font-size: 1rem;
+  }
+
+  .input-icon img {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  .icon-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-button:hover {
+    color: $color-text-primary;
   }
 }
 
@@ -183,6 +231,52 @@
     border-color: rgba($color-text-primary, 0.24);
     transform: translateY(-2px);
   }
+}
+
+.form-feedback {
+  @include alert-danger;
+  margin-top: $spacing-md;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+.modal {
+  background: $color-bg-card;
+  border-radius: 16px;
+  padding: $spacing-2xl;
+  width: min(420px, 90%);
+  text-align: center;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+
+.modal-body {
+  display: grid;
+  gap: $spacing-md;
+  align-items: center;
+}
+
+.modal-check {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: $color-success;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+.modal button {
+  margin-top: $spacing-md;
 }
 
 @media (max-width: 768px) {
