@@ -1,0 +1,69 @@
+<section class="cuenta-page fade-in">
+  <div class="cuenta-shell">
+    <nav class="cuenta-steps" aria-label="Progreso de perfil">
+      <button type="button" class="step" routerLink="/formulario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>1</span>
+        <small>PERFIL</small>
+      </button>
+      <div class="step-separator"></div>
+      <button type="button" class="step" routerLink="/certificado" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>2</span>
+        <small>CERTIFICADOS</small>
+      </button>
+      <div class="step-separator"></div>
+      <button type="button" class="step" routerLink="/cuenta" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>3</span>
+        <small>CUENTA</small>
+      </button>
+    </nav>
+
+    <div class="cuenta-card">
+      <header class="cuenta-header">
+        <div>
+          <h1>Crear tu cuenta</h1>
+          <p>Define tus credenciales de acceso y revisa tu resumen de registro.</p>
+        </div>
+      </header>
+
+      <form class="cuenta-form" autocomplete="off">
+        <div class="field-row">
+          <label class="field-group">
+            <span>Correo electrónico</span>
+            <input type="email" placeholder="ejemplo@entreno.com" [(ngModel)]="formState.profile.email" name="email" />
+          </label>
+          <label class="field-group">
+            <span>Contraseña</span>
+            <input type="password" placeholder="********" [(ngModel)]="formState.profile.password" name="password" />
+          </label>
+        </div>
+
+        <div class="resumen-card">
+          <div class="resumen-title">
+            <strong>Resumen de Registro</strong>
+          </div>
+          <div class="resumen-item">
+            <span> Nombre Completo</span>
+            <strong>{{ formState.profile.fullName || 'No especificado' }}</strong>
+          </div>
+          <div class="resumen-item">
+            <span> Especialidad</span>
+            <strong>{{ formState.profile.specialty || 'No especificado' }}</strong>
+          </div>
+          <div class="resumen-item">
+            <span> Certificación</span>
+            <strong>{{ formState.profile.bio ? 'Certificado agregado' : 'Sin descripción' }}</strong>
+          </div>
+          <div class="resumen-item">
+            <span> Disponibilidad</span>
+            <strong>{{ formState.profile.selectedDay }} , {{ formState.profile.selectedShift }} : {{ formState.profile.fromTime }} - {{ formState.profile.toTime }}</strong>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" routerLink="/certificado">← Atrás</button>
+          <button type="button" class="btn-primary">Continuar →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

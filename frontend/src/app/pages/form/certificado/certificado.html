@@ -1,0 +1,95 @@
+<section class="certificado-page fade-in">
+  <div class="certificado-shell">
+    <nav class="certificado-steps" aria-label="Progreso de perfil">
+      <button type="button" class="step" routerLink="/formulario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>1</span>
+        <small>PERFIL</small>
+      </button>
+      <div class="step-separator"></div>
+      <button type="button" class="step" routerLink="/certificado" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>2</span>
+        <small>CERTIFICADOS</small>
+      </button>
+      <div class="step-separator"></div>
+      <button type="button" class="step" routerLink="/cuenta" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>3</span>
+        <small>CUENTA</small>
+      </button>
+    </nav>
+
+    <div class="certificado-card">
+      <header class="certificado-header">
+        <div>
+          <h1>Certificaciones y Documentos</h1>
+          <p>Sube tus documentos para obtener el sello de verificación.</p>
+        </div>
+      </header>
+
+      <div class="certificado-list">
+        <article class="document-item">
+          <div class="document-info">
+            <span class="document-icon">🪪</span>
+            <div>
+              <strong>DNI / Documento de identidad</strong>
+              <span class="status pending">PENDIENTE</span>
+            </div>
+          </div>
+          <button type="button" class="btn-upload" (click)="fileInput.click()">
+            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
+          <input type="file" #fileInput (change)="getFile($event)" hidden>
+        </article>
+
+        <article class="document-item">
+          <div class="document-info">
+            <span class="document-icon">🎓</span>
+            <div>
+              <strong>Título universitario (SUNEDU)</strong>
+              <span class="status pending">PENDIENTE</span>
+            </div>
+          </div>
+          <button type="button" class="btn-upload" (click)="fileInput.click()">
+            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
+          <input type="file" #fileInput (change)="getFile($event)" hidden>
+        </article>
+
+        <article class="document-item">
+          <div class="document-info">
+            <span class="document-icon">📋</span>
+            <div>
+              <strong>Antecedentes penales</strong>
+              <span class="status pending">PENDIENTE</span>
+            </div>
+          </div>
+          <button type="button" class="btn-upload" (click)="fileInput.click()">
+            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
+          <input type="file" #fileInput (change)="getFile($event)" hidden>
+        </article>
+
+        <article class="document-item">
+          <div class="document-info">
+            <span class="document-icon">🔒</span>
+            <div>
+              <strong>Certificación en entrenamiento adaptado</strong>
+              <span class="status pending">PENDIENTE</span>
+            </div>
+          </div>
+          <button type="button" class="btn-upload" (click)="fileInput.click()">
+            <img src="assets/icons/Icon_update.png" alt="Icono de documento"/> Subir</button>
+          <input type="file" #fileInput (change)="getFile($event)" hidden>
+        </article>
+      </div>
+
+      <div class="certificado-note">
+        <p>
+          Los documentos serán revisados por el equipo de SharEntrenamiento en un plazo máximo de 48 horas hábiles.
+          Recibirás una notificación una vez validados.
+        </p>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary" routerLink="/formulario">← Atrás</button>
+        <button type="button" class="btn-primary" routerLink="/cuenta">Continuar →</button>
+      </div>
+    </div>
+  </div>
+</section>

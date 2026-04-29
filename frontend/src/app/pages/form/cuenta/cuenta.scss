@@ -1,0 +1,229 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.cuenta-page {
+  @include onboarding-page;
+}
+
+.cuenta-shell {
+  @include onboarding-shell;
+}
+
+.cuenta-steps {
+  @include onboarding-steps;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+}
+
+.step {
+  @include onboarding-step;
+  min-width: 140px;
+}
+
+.step-separator {
+  @include onboarding-separator;
+  margin: 0 $spacing-sm;
+}
+
+.cuenta-card {
+  @include onboarding-card;
+  padding: $spacing-2xl;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba($color-primary, 0.06), transparent 35%);
+  }
+}
+
+.cuenta-header {
+  @include onboarding-header;
+  position: relative;
+  z-index: 1;
+  margin-bottom: $spacing-xl;
+
+  h1 {
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    color: $color-text-secondary;
+    line-height: 1.7;
+  }
+}
+
+.cuenta-form {
+  @include form-grid;
+  position: relative;
+  z-index: 1;
+}
+
+.field-row {
+  @include field-row;
+}
+
+.field-group {
+  @include field-group;
+
+  input {
+    min-height: 56px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  }
+}
+
+.resumen-card {
+  background: rgba(20, 28, 44, 0.6);
+  border: 1px solid rgba($color-primary, 0.2);
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  position: relative;
+  z-index: 1;
+}
+
+.resumen-title {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  strong {
+    color: $color-text-primary;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+  }
+
+  &::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, rgba($color-primary, 0.2), rgba($color-info, 0.2));
+    border: 1px solid rgba($color-primary, 0.3);
+    border-radius: $border-radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+}
+
+.resumen-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  span {
+    color: $color-text-tertiary;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: $font-weight-medium;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    &::before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: rgba($color-primary, 0.1);
+      border: 1px solid rgba($color-primary, 0.2);
+      border-radius: $border-radius-sm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  strong {
+    color: $color-text-primary;
+    font-weight: $font-weight-semibold;
+    text-align: right;
+    max-width: 50%;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+  margin-top: $spacing-2xl;
+}
+
+.btn-primary {
+  @include btn-pill-primary;
+  min-width: 180px;
+  box-shadow: 0 16px 30px rgba($color-primary, 0.14);
+  flex: 1;
+}
+
+.btn-secondary {
+  @include button-base;
+  padding: 16px 32px;
+  border-radius: $border-radius-full;
+  background: transparent;
+  color: $color-text-primary;
+  border: 1px solid rgba($color-text-primary, 0.12);
+  font-weight: $font-weight-semibold;
+  flex: 1;
+
+  &:hover {
+    background: rgba($color-text-primary, 0.04);
+    border-color: rgba($color-text-primary, 0.24);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cuenta-card {
+    padding: $spacing-xl;
+  }
+
+  .resumen-card {
+    padding: $spacing-lg;
+  }
+}
+
+@media (max-width: 620px) {
+  .cuenta-card {
+    padding: $spacing-lg;
+  }
+
+  .cuenta-header {
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .resumen-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+
+    strong {
+      text-align: left;
+      max-width: 100%;
+    }
+  }
+}
