@@ -1,5 +1,9 @@
 import { Routes } from '@angular/router';
 import { LandingComponent } from './pages/landing/landing.component';
+import { Login } from './pages/form/login/login';
+import { Perfil } from './pages/form/perfil/perfil';
+import { Certificado } from './pages/form/certificado/certificado';
+import { Cuenta } from './pages/form/cuenta/cuenta';
 
 export const routes: Routes = [
   {
@@ -21,5 +25,21 @@ export const routes: Routes = [
   {
     path: 'soporte',
     component: LandingComponent // Será reemplazado por soporte component
-  }
+  },
+  {
+    path: 'login',
+    component: Login
+  },
+  {
+    path: 'formulario',
+    component: Perfil
+  },
+  {
+    path: 'certificado',
+    component: Certificado
+  },
+  {
+    path: 'cuenta',
+    component: Cuenta
+  },
 ];
