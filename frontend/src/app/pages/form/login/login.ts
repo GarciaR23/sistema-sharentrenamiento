@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators, ɵInternalFormsSharedModu
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ɵInternalFormsSharedModule,ReactiveFormsModule],
+  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
 })

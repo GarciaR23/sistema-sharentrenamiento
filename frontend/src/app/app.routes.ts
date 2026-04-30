@@ -4,6 +4,9 @@ import { Login } from './pages/form/login/login';
 import { Perfil } from './pages/form/perfil/perfil';
 import { Certificado } from './pages/form/certificado/certificado';
 import { Cuenta } from './pages/form/cuenta/cuenta';
+import { Tutor } from './pages/form/tutor/tutor';
+import { SeleccionRolComponent } from './pages/form/seleccion-rol/seleccion-rol';
+import { FormularioTutor } from './pages/form/formulario-tutor/formulario-tutor';
 
 export const routes: Routes = [
   {
@@ -42,4 +45,15 @@ export const routes: Routes = [
     path: 'cuenta',
     component: Cuenta
   },
+  {
+  path: 'tutor',
+  component: Tutor
+},
+{
+  path: 'seleccion-rol',
+  component: SeleccionRolComponent
+},
+{ path: 'formulario-tutor',
+   component: FormularioTutor
+}
 ];
