@@ -16,7 +16,7 @@ export class SeleccionRolComponent {
     localStorage.setItem('rolSeleccionado', rol);
 
     if (rol === 'TUTOR') {
-      this.router.navigate(['/tutor']);
+      this.router.navigate(['/formulario-tutor']);
     } else {
       this.router.navigate(['/formulario']);
     }
