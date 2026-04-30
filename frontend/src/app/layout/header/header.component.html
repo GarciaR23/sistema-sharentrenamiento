@@ -1,7 +1,7 @@
 <header class="header" [class.scrolled]="isScrolled">
   <nav class="navbar">
     <div class="navbar-container">
-      
+
       <!-- Logo y Nombre - Izquierda -->
       <div class="navbar-logo">
         <a routerLink="/" class="logo-link">
@@ -71,7 +71,7 @@
 
       <!-- Empezar Ahora - Derecha -->
       <div class="nav-auth">
-        <a href="#login" class="btn-cta" (click)="closeMenu()">
+        <a routerLink="/seleccion-rol" class="btn-cta" (click)="closeMenu()">
           Empezar Ahora
         </a>
       </div>

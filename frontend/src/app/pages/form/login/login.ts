@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule],
+  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule,CommonModule,RouterLink],
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
 })
@@ -27,5 +29,11 @@ export class Login {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
     }
+  }
+
+  isMenuOpen = false;
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }
