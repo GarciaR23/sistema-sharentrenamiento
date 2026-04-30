@@ -32,4 +32,10 @@ public class PacienteRestController {
     public ResponseEntity<Paciente> create(@RequestBody Paciente paciente) {
         return new ResponseEntity<>(pacienteService.create(paciente), HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        pacienteService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

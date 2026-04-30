@@ -27,4 +27,17 @@ public class SensibilidadPacienteRestController {
     public ResponseEntity<SensibilidadPaciente> create(@RequestBody SensibilidadPaciente sensibilidad) {
         return new ResponseEntity<>(sensibilidadPacienteService.create(sensibilidad), HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<SensibilidadPaciente> update(
+            @PathVariable Integer id,
+            @RequestBody SensibilidadPaciente sensibilidad) {
+        return ResponseEntity.ok(sensibilidadPacienteService.update(id, sensibilidad));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        sensibilidadPacienteService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

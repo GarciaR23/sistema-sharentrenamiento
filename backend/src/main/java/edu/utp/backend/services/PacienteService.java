@@ -34,4 +34,12 @@ public class PacienteService {
 
         return repository.save(paciente);
     }
+
+    public void delete(Integer id) {
+        if (!repository.existsById(id)) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Id de paciente no encontrado");
+        }
+        repository.deleteById(id);
+    }
 }

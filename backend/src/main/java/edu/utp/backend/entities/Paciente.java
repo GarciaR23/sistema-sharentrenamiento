@@ -15,6 +15,9 @@ public class Paciente {
     @Column(name = "id_paciente")
     private Integer idPaciente;
 
+    @Column(name = "nombre_completo", nullable = false)
+    private String nombreCompleto;
+
     @Column(name = "nombre_paciente", nullable = false)
     private String nombrePaciente;
 
@@ -29,4 +32,8 @@ public class Paciente {
 
     @Column(name = "edad")
     private Integer edad;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tutor", nullable = false)
+    private Tutor tutor;
 }
