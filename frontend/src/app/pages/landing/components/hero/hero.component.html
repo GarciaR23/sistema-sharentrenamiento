@@ -9,7 +9,7 @@
     </h1>
 
     <p class="main">
-      Conectamos a familias con instructores certificados para un entrenamiento adaptado, 
+      Conectamos a familias con instructores certificados para un entrenamiento adaptado,
       seguro y de alto rendimiento. Porque la inclusión es nuestra meta principal.
     </p>
 
@@ -19,11 +19,11 @@
 
     <!-- BOTONES -->
     <div class="buttons">
-      <button class="primary">
+      <button class="primary" routerLink="/login" (click)="closeMenu()">
         <span>Iniciar Sesión</span>
       </button>
 
-      <button class="secondary">
+      <button class="secondary" routerLink="/login" (click)="closeMenu()">
         Soy Instructor
       </button>
     </div>
@@ -38,7 +38,7 @@
   <!-- DERECHA: IMAGEN -->
   <div class="hero-image">
 
-    <img 
+    <img
       src="https://public.readdy.ai/ai/img_res/edited_5dbbed92018d6e1c91b77859fdd1638e_7c6acd08.jpg"
       alt="Entrenamiento"
     />
