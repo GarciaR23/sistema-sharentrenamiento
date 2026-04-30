@@ -26,7 +26,7 @@ public class Usuario {
     private String email;
     @Column(name = "clave", length = 50, nullable = false)
     private String contraseña;
-    @Column(length = 50, nullable = false)
+    @Column(name="rol")
     private String rol;
     @Column(name = "estado_cuenta", length = 100)
     private String estadoCuenta;
